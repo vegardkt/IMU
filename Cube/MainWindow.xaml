@@ -191,7 +191,7 @@
         <StackPanel Grid.Column="3">
             <DockPanel Margin="0,200,0,0">
                 <Label>Roll</Label>
-                <Slider Width="100" Name="RollSlider" Maximum="360" Minimum="0" ValueChanged="Slider_ValueChanged"/>
+                <Slider Width="100" Name="RollSlider" Maximum="180" Minimum="-180" ValueChanged="Slider_ValueChanged"/>
                 <TextBox HorizontalAlignment="Right" Margin="0,0,10,0" Text="{Binding ElementName=RollSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40"/>
             </DockPanel>
             <DockPanel Margin="0,20,0,0">
