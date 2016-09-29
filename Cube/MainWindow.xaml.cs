@@ -26,6 +26,10 @@ namespace Cube
         AxisAngleRotation3D ax3d_Y = new AxisAngleRotation3D(new Vector3D(1, 1, 1), 1);
         AxisAngleRotation3D ax3d_Z = new AxisAngleRotation3D(new Vector3D(1, 1, 1), 1);
 
+        double tmpRoll;
+        double tmpPitch;
+        double tmpYaw;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -45,16 +49,36 @@ namespace Cube
 
         private void Slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            ax3d_iso.Axis = new Vector3D(RollSlider.Value, PitchSlider.Value, YawSlider.Value);
-            ax3d_iso.Angle = RollSlider.Value + PitchSlider.Value + YawSlider.Value;
 
-            ax3d_X.Axis = new Vector3D(RollSlider.Value, 0, 0);
-            ax3d_X.Angle = RollSlider.Value;
+            tmpPitch = PitchSlider.Value;
+            tmpRoll = RollSlider.Value;
+            tmpYaw = YawSlider.Value;
 
-            ax3d_Y.Axis = new Vector3D(0, PitchSlider.Value, 0);
+            if (tmpPitch < 0)
+            {
+                tmpPitch = tmpPitch + 360;
+            }
+
+            if (tmpRoll < 0)
+            {
+                tmpRoll = tmpRoll + 360;
+            }
+
+            if (tmpYaw < 0)
+            {
+                tmpYaw = tmpYaw + 360;
+            }
+
+            ax3d_iso.Axis = new Vector3D(tmpRoll, tmpPitch, tmpYaw);
+            ax3d_iso.Angle = tmpRoll + tmpPitch + tmpYaw;
+
+            ax3d_X.Axis = new Vector3D(tmpRoll, 0, 0);
+            ax3d_X.Angle = RollSlider.Value; 
+                       
+            ax3d_Y.Axis = new Vector3D(0, tmpPitch, 0);
             ax3d_Y.Angle = PitchSlider.Value;
-
-            ax3d_Z.Axis = new Vector3D(0, 0, YawSlider.Value);
+           
+            ax3d_Z.Axis = new Vector3D(0, 0, tmpYaw);
             ax3d_Z.Angle = YawSlider.Value;
 
         }

@@ -21,8 +21,8 @@
         <Viewport3D Grid.Column="0" Grid.Row="0">
             <Viewport3D.Camera>
                 <PerspectiveCamera 
-                    Position="1.5,2,3" 
-                    LookDirection = "-1.5, -2, -3" 
+                    Position="-1.5,-2,3" 
+                    LookDirection = "+1.5, +2, -3" 
                      UpDirection = "0, 0, 1" 
                     FieldOfView = "60"/>
             </Viewport3D.Camera>
@@ -65,15 +65,15 @@
         <Viewport3D Grid.Column="1" Grid.Row="0">
             <Viewport3D.Camera>
                 <PerspectiveCamera 
-                    Position="5,0,0" 
-                    LookDirection = "-2, 0, 0" 
+                    Position="-5,0,0" 
+                    LookDirection = "22, 0, 0" 
                      UpDirection = "0, 0, 1" 
                     FieldOfView = "60"/>
             </Viewport3D.Camera>
             <ModelVisual3D x:Name="IMU_Model_X">
                 <ModelVisual3D.Content>
                     <Model3DGroup>
-                        <DirectionalLight Color="White" Direction="-1,-1,-3"/>
+                        <DirectionalLight Color="White" Direction="2,1,3"/>
                         <GeometryModel3D>
                             <GeometryModel3D.Geometry>
                                 <MeshGeometry3D 
@@ -107,15 +107,15 @@
         <Viewport3D Grid.Column="1" Grid.Row="1">
             <Viewport3D.Camera>
                 <PerspectiveCamera 
-                    Position="0,5,0" 
-                    LookDirection = "0, -2, 0" 
+                    Position="0,-5,0" 
+                    LookDirection = "0, 2, 0" 
                      UpDirection = "0, 0, 1" 
                     FieldOfView = "60"/>
             </Viewport3D.Camera>
             <ModelVisual3D x:Name="IMU_Model_Y">
                 <ModelVisual3D.Content>
                     <Model3DGroup>
-                        <DirectionalLight Color="White" Direction="-1,-1,-3"/>
+                        <DirectionalLight Color="White" Direction="1,2,3"/>
                         <GeometryModel3D>
                             <GeometryModel3D.Geometry>
                                 <MeshGeometry3D 
@@ -149,15 +149,15 @@
         <Viewport3D Grid.Column="0" Grid.Row="1">
             <Viewport3D.Camera>
                 <PerspectiveCamera 
-                    Position="0,0,5" 
-                    LookDirection = "0, 0, -2" 
+                    Position="0,0,-5" 
+                    LookDirection = "0, 0, 2" 
                      UpDirection = "1, 0, 0" 
                     FieldOfView = "60"/>
             </Viewport3D.Camera>
             <ModelVisual3D x:Name="IMU_Model_Z">
                 <ModelVisual3D.Content>
                     <Model3DGroup>
-                        <DirectionalLight Color="White" Direction="-1,-1,-3"/>
+                        <DirectionalLight Color="White" Direction="1,1,3"/>
                         <GeometryModel3D>
                             <GeometryModel3D.Geometry>
                                 <MeshGeometry3D 
@@ -196,12 +196,12 @@
             </DockPanel>
             <DockPanel Margin="0,20,0,0">
                 <Label>Pitch</Label>
-                <Slider Width="100" Name="PitchSlider" Maximum="360" Minimum="0" ValueChanged="Slider_ValueChanged"/>
+                <Slider Width="100" Name="PitchSlider" Maximum="180" Minimum="-180" ValueChanged="Slider_ValueChanged"/>
                 <TextBox HorizontalAlignment="Right" Margin="0,0,10,0" Text="{Binding ElementName=PitchSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
             </DockPanel>
             <DockPanel Margin="0,20,0,0">
                 <Label>Yaw</Label>
-                <Slider Width="100" Name="YawSlider" Maximum="360" Minimum="0" ValueChanged="Slider_ValueChanged"/>
+                <Slider Width="100" Name="YawSlider" Maximum="180" Minimum="-180" ValueChanged="Slider_ValueChanged"/>
                 <TextBox HorizontalAlignment="Right" Margin="0,0,10,0" Text="{Binding ElementName=YawSlider, Path=Value, UpdateSourceTrigger=PropertyChanged}" DockPanel.Dock="Right" TextAlignment="Right" Width="40" />
             </DockPanel>
         </StackPanel>
